@@ -1,0 +1,92 @@
+body{
+    height: 100%;
+
+    font-family: "bits";
+}
+
+.pop-up {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #pop-up-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    top: 35vh;
+    left: 25vw;
+    width: 50vw;
+    height: 30vh;
+    position: relative;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+h1{
+    margin: 60px 0 40px 0;
+    text-align: center;
+}
+
+.player-reg{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+}
+.players-scores{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+}
+
+.playground{
+    display: flex;
+    justify-content: center;
+}
+
+.grid{
+    margin: 5vh;
+    display: grid;
+    gap: 1vw;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+}
+
+.tile{
+    background-color: aquamarine;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    border: 1px solid hsl(0, 48%, 45%);
+    transition: 0.5s ease;
+}
+
+.tile:hover{
+    background-color: hsl(0, 40%, 51%);
+}
+
+#close{
+    display: flex;
+    justify-content: space-between;
+}
+
+#close-button:hover{
+    cursor: pointer;
+}
+
+#enter-names{
+    background-color: aqua;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 0.5rem;
+}

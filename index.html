@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
-</head>
-<body>
+    <link rel="stylesheet" href="styles/reset-fonts.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="pop-up">
+      <form action="index.html" id="pop-up-form">
+        <div class="form-row" id="close">
+          
+          <div class="row">
+            <label for="name-player1">Player 1 Name (x):</label>
+            <input type="text" name="name-player1" id="name-player1" required />
+          </div>
+          <p id="close-button">x</p>
+        </div>
+        <div class="form-row">
+          <label for="name-player2">Player 2 Name (o):</label>
+          <input type="text" name="name-player2" id="name-player2" required />
+        </div>
+        <button type="submit" id="submit-players">Play!</button>
+      </form>
+    </div>
+
+    <h1>Tic Tac Toe</h1>
+    <div class="player-reg">
+      <button id="enter-names">Enter Players' Names</button>
+    </div>
+    <div class="players-scores">
+      <div class="player-score">
+        <p id="player1-name">Player1</p>
+        <p>Score:</p>
+      </div>
+      <div class="player-score">
+        <p id="player2-name">Player2</p>
+        <p>Score:</p>
+      </div>
+    </div>
+    <div class="playground">
+      <div class="grid">
+        <p class="tile" id="1"></p>
+        <p class="tile" id="2"></p>
+        <p class="tile" id="3"></p>
+        <p class="tile" id="4"></p>
+        <p class="tile" id="5"></p>
+        <p class="tile" id="6"></p>
+        <p class="tile" id="7"></p>
+        <p class="tile" id="8"></p>
+        <p class="tile" id="9"></p>
+      </div>
+    </div>
+
     <script src="scripts/script.js"></script>
-    
-</body>
+  </body>
 </html>
