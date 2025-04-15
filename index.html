@@ -10,19 +10,20 @@
   <body>
     <div class="pop-up">
       <form action="index.html" id="pop-up-form">
-        <div class="form-row" id="close">
           
-          <div class="row">
+          <div class="form-row">
             <label for="name-player1">Player 1 Name (x):</label>
             <input type="text" name="name-player1" id="name-player1" required />
           </div>
-          <p id="close-button">x</p>
-        </div>
+          
         <div class="form-row">
           <label for="name-player2">Player 2 Name (o):</label>
           <input type="text" name="name-player2" id="name-player2" required />
         </div>
-        <button type="submit" id="submit-players">Play!</button>
+        <div class="form-row">
+          <button type="submit" id="submit-players">Play!</button>
+          <button type="button" id="close-button">Cancel</button>
+        </div>
       </form>
     </div>
 
@@ -52,6 +53,10 @@
         <p class="tile" id="8"></p>
         <p class="tile" id="9"></p>
       </div>
+    </div>
+    <div class="game-interactions">
+      <button onclick="">Quit</button>
+      <button onclick="">New Game</button>
     </div>
 
     <script src="scripts/script.js"></script>

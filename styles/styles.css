@@ -30,6 +30,7 @@ body{
     height: 30vh;
     position: relative;
     display: flex;
+    align-items: center;
 
     flex-direction: column;
     justify-content: space-around;
@@ -87,10 +88,19 @@ h1{
     cursor: pointer;
 }
 
-#enter-names{
+button{
+    width: 150px;
     background-color: aqua;
     padding: 6px;
     border-radius: 5px;
     border: 1px solid black;
     margin-bottom: 0.5rem;
+}
+
+.game-interactions{
+
+    display: none;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
 }

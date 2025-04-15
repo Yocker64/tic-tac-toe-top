@@ -31,39 +31,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const formPlayers =  document.getElementById("pop-up-form");
   const fieldPlayer1 = document.getElementById("name-player1");
   const fieldPlayer2 = document.getElementById("name-player2");
+  const interactions = document.querySelector(".game-interactions");
 
   formPlayers.addEventListener("submit", (event) => {
     event.preventDefault();
+    
     let player1Name = fieldPlayer1.value;
     let player2Name = fieldPlayer2.value;
     document.getElementById("player1-name").innerText = player1Name;
     document.getElementById("player2-name").innerText = player2Name;
     game = Game(player1Name, player2Name);
     popup.style.display = "none";
+    enterButton.style.display = "none";
+    interactions.style.display = "flex";
     
   })
 
 
-  // Tile elements
-  let tile1 = document.getElementById("1");
-  let tile2 = document.getElementById("2");
-  let tile3 = document.getElementById("3");
-  let tile4 = document.getElementById("4");
-  let tile5 = document.getElementById("5");
-  let tile6 = document.getElementById("6");
-  let tile7 = document.getElementById("7");
-  let tile8 = document.getElementById("8");
-  let tile9 = document.getElementById("9");
+  // Tile elements with the listeners
+  let tiles = [];
+  for (let i = 0; i < 9; i++) {
+    tiles[i]= document.getElementById(1+i);
+    addListenerToTile(tiles[i]);
+  }
 
-  addListenerToTile(tile1);
-  addListenerToTile(tile2);
-  addListenerToTile(tile3);
-  addListenerToTile(tile4);
-  addListenerToTile(tile5);
-  addListenerToTile(tile6);
-  addListenerToTile(tile7);
-  addListenerToTile(tile8);
-  addListenerToTile(tile9);
+
+
 
 });
 
