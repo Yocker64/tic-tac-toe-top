@@ -100,18 +100,19 @@ function addListenerToTile(tile) {
 
     // Start game
     let play = (tile, noTile) => {
-      let move = findCoordinates(noTile);
+      if (!gameFinished) {
+        let move = findCoordinates(noTile);
       let xcoordinate = move[0];
       let ycoordinate = move[1];
             if (turn % 2 == 0) {
               tile.innerText = "x";
               grid[ycoordinate][xcoordinate]="x";
-              evaluateGame(ycoordinate, xcoordinate, grid, player1, gameFinished);
+              gameFinished = evaluateGame(ycoordinate, xcoordinate, grid, player1);
               
             } else {
               tile.innerText = "o";
               grid[ycoordinate][xcoordinate]="o";
-              evaluateGame(ycoordinate, xcoordinate, grid, player2, gameFinished);
+               gameFinished = evaluateGame(ycoordinate, xcoordinate, grid, player2);
             }
             turn += 1;
           
@@ -120,10 +121,14 @@ function addListenerToTile(tile) {
             alert("The game is over; it is a draw!")
         }
   
-    };
+    }else {
+      alert("The game is already over")
+    }
+      }
     return { player1, player2, board, turn, gameNumber, gameFinished, play };
   }
 
+  // Given a tile, gives the coordinates for the determinateWinner func
   function findCoordinates(tile) {
     if (tile ==1) {
       return [0,0];
@@ -154,7 +159,8 @@ function addListenerToTile(tile) {
     }
   }
 
-  function evaluateGame(ycoordinate, xcoordinate, grid, player, gameFinished) {
+  function evaluateGame(ycoordinate, xcoordinate, grid, player) {
+    let gameFinished = false;
     // Check for a win in a row for the last move of the last player that played
     for (let index = 0; index < 3; index++) {
       if (grid[ycoordinate][index] !== player.mark) {
@@ -200,10 +206,10 @@ function addListenerToTile(tile) {
         }
       }
     }
+    return gameFinished;
   }
 
   function Board() {
     let grid = [[], [], []];
-    let evaluate = () => {};
     return { grid };
   }
