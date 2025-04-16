@@ -67,9 +67,9 @@ h1{
 }
 
 .tile{
+    font-size: 70px;
     background-color: aquamarine;
     text-align: center;
-    align-content: center;
     border-radius: 5px;
     border: 1px solid hsl(0, 48%, 45%);
     transition: 0.5s ease;

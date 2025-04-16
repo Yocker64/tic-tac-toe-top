@@ -1,6 +1,12 @@
 let playerID = 0;
 let gameNo = 0;
 let game;
+// Tile elements with the listeners
+let tiles = [];
+for (let i = 0; i < 9; i++) {
+  tiles[i]= document.getElementById(1+i);
+  addListenerToTile(tiles[i]);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 // Handle the pop up form after loading the html to not have conflitcts with null elements
@@ -38,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let player1Name = fieldPlayer1.value;
     let player2Name = fieldPlayer2.value;
-    document.getElementById("player1-name").innerText = player1Name;
-    document.getElementById("player2-name").innerText = player2Name;
+    document.getElementById("player1-name").innerText = player1Name + " (x)";
+    document.getElementById("player2-name").innerText = player2Name + " (o)";
     game = Game(player1Name, player2Name);
     popup.style.display = "none";
     enterButton.style.display = "none";
@@ -48,25 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
 
-  // Tile elements with the listeners
-  let tiles = [];
-  for (let i = 0; i < 9; i++) {
-    tiles[i]= document.getElementById(1+i);
-    addListenerToTile(tiles[i]);
-  }
+  
 
 
 
 
 });
 
-function addListenerToTile(tile) {
-  tile.addEventListener("click", ()=>{
-    if (tile.innerText == "") {
-      game.play(tile, parseInt(tile.id));      
-    }
-  });
-}
+
 
 
 
@@ -205,4 +200,21 @@ function addListenerToTile(tile) {
   function Board() {
     let grid = [[], [], []];
     return { grid };
+  }
+
+  function newGame() {
+    tiles.forEach((element)=>{
+      element.innerText = "";
+    });
+    grid.forEach((element)=>{
+      element = null;
+    });
+  }
+
+  function addListenerToTile(tile) {
+    tile.addEventListener("click", ()=>{
+      if (tile.innerText == "") {
+        game.play(tile, parseInt(tile.id));      
+      }
+    });
   }
