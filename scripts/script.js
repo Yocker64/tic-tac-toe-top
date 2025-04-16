@@ -46,32 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let player2Name = fieldPlayer2.value;
     document.getElementById("player1-name").innerText = player1Name + " (x)";
     document.getElementById("player2-name").innerText = player2Name + " (o)";
-    game = Game(player1Name, player2Name);
+    game = new Game(player1Name, player2Name);
     popup.style.display = "none";
     enterButton.style.display = "none";
     interactions.style.display = "flex";
     
   })
 
-
-  
-
-
-
-
 });
-
-
-
-
 
   function player(name, mark) {
     // Factory for players with a unique ID and initial properties as undefined or 0
     playerID += 1;
     let result = null;
-    let score = 0;
     const id = playerID;
-    return { id, name, result, score, mark };
+    return { id, name, result, mark };
   }
 
   function Game(name1, name2) {
@@ -206,9 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tiles.forEach((element)=>{
       element.innerText = "";
     });
-    grid.forEach((element)=>{
-      element = null;
-    });
+    game = new Game(game.player1.name, game.player2.name);
   }
 
   function addListenerToTile(tile) {
